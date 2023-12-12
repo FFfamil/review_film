@@ -33,7 +33,7 @@ $film = new C_film();
                             <!--untuk menampung nama dari user-->
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user"
-                                    placeholder="Nama Film" name="nama" value ="<?= $b->nama?>">
+                                    placeholder="Nama Film" name="nama" value ="<?= $b->judul?>">
                             </div>
                    
                             <!--untuk menampung password dari user-->

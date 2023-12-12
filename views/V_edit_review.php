@@ -5,9 +5,9 @@ include_once 'template/header.php';
 include_once 'template/sidebar.php';
 include_once 'template/topbar.php';
 
-include_once '../controllers/C_review.php';
+include_once '../controllers/C_film.php';
 
-$review = new C_review();
+$film = new C_film();
 ?>
 <body class="bg-gradient-primary">
 
@@ -20,58 +20,52 @@ $review = new C_review();
                 <div class="col-lg-12">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Edit Review</h1>
+                            <h1 class="h4 text-gray-900 mb-4">Edit Film</h1>
                         </div>
 
-                        <form action="../routers/r_review.php?aksi=update" method="POST" class="user" enctype ="multipart/form-data">
-                            <?php foreach($review->edit($_GET['id']) as $b){?>
+                        <form action="../routers/R_film.php?aksi=update" method="POST" class="user" enctype ="multipart/form-data">
+                            <?php foreach($film->edit($_GET['id']) as $b){?>
                             <!--untuk menampung inputan id user -->
                             <div class="form-group">
                                 <input type="text" class="form-control form-control-user"
                                     placeholder="Id" name="id" value ="<?= $b->id ?>" hidden>
                             </div>
                             <!--untuk menampung nama dari user-->
-                            <div hidden class="form-group">
+                            <div class="form-group">
                                 <input type="text" class="form-control form-control-user"
-                                    placeholder="id_review" name="id_review" value ="<?= $b->id_review?>">
+                                    placeholder="Nama Film" name="nama" value ="<?= $b->judul?>">
                             </div>
                    
                             <!--untuk menampung password dari user-->
-                            <div class="form-group" hidden>
+                            <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="password"
-                                    placeholder="id" name="id"value ="<?= $b->id ?>">
+                                    placeholder="genre" name="genre"value ="<?= $b->genre ?>">
                             </div>
 
                              <!--untuk menampung password dari user-->
                              <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="password"
-                                    placeholder="nama" name="nama"value ="<?= $b->judul ?>">
+                                    placeholder="rating" name="rating"value ="<?= $b->rating ?>">
                             </div>
 
                              <!--untuk menampung password dari user-->
                              <div class="form-group">
                                 <input type="text" class="form-control form-control-user" id="password"
-                                    placeholder="pengguna" name="pengguna"value ="<?= $b->nama ?>">
+                                    placeholder="deskripsi" name="deskripsi"value ="<?= $b->deskripsi ?>">
                             </div>
 
-                             <!--untuk menampung password dari user-->
-                             <div class="form-group">
-                                <input type="text" class="form-control form-control-user" id="password"
-                                    placeholder="review" name="review"value ="<?= $b->review ?>">
-                            </div>
 
 
                             <!--untuk menampung nama dari user-->
                             <div class="form-group">
                                 <input type="file" class="form-control form-control-user" id="photo"
-                                    value="<?= $b->photo ?>" name="photo">
+                                    value="<?= $b->photo ?>" name="photo" hidden>
                             </div>
                            
-                            <!-- <div style="display: flex ; justify-content: center; align-items: center;">
-                                                <img name = "photo" src="<?= "../assets/img/" . $b->photo;?>" alt="<?= $b->nama?>" width="150" height="195">
-                                        </div>
-                                        <br>    
-                                       <p align = "center"> <?= $b->judul ?> </p> -->
+                            <div class="input-field">
+                                <input type="file" value="Choose File" id="photo" name="photo">
+                            </div>
+
                             <div class="input-field">
                                 <input type="submit" class="btn btn-primary btn-user btn-block" value="Edit" id="register" name="register">
                             </div>

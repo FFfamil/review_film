@@ -75,9 +75,13 @@ class C_review{
 
             $hasil[] = $q;
         }
-
+        if (empty($hasil)) {
+            echo "";
+        }else{
         return $hasil;
+        }
     }
+
 
     public function update ($id_review, $id, $id_pengguna, $review, $photo) {
 
